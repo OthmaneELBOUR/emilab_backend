@@ -1,5 +1,7 @@
 package devjam.emilab.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class Person {
     @Column(unique = true)
     protected String mail;
     protected String password;
+    protected LocalDateTime timeJoined;
 
 
     public Person() {
@@ -35,6 +38,7 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.mail = mail;
         this.password = password;
+        this.timeJoined = LocalDateTime.now();
     }
 
 
@@ -98,15 +102,28 @@ public class Person {
         this.pictureURL = pictureURL;
     }
 
+    public LocalDateTime getTimeJoined() {
+        return this.timeJoined;
+    }
+
+    public void setTimeJoined(LocalDateTime timeJoined) {
+        this.timeJoined = timeJoined;
+    }
 
 
 
     @Override
     public String toString() {
-        return "Person [id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", phoneNumber="
-                + phoneNumber + ", mail=" + mail + ", password=" + password + "]";
+        return "Person [id=" + id + ", pictureURL=" + pictureURL + ", lastname=" + lastname + ", firstname=" + firstname
+                + ", phoneNumber=" + phoneNumber + ", mail=" + mail + ", password=" + password + ", timeJoined="
+                + timeJoined + "]";
     }
 
+
+
+
+
+    
    
 
 
