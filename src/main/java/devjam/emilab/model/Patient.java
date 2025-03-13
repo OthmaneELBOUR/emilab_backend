@@ -8,6 +8,7 @@ import devjam.emilab.enums.Mood;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -18,10 +19,10 @@ public class Patient extends Person {
     private Mood mood;
     private int level = 1;
     // private List<Mood> previousMoods;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Session> sessions;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Challenge> challenges;
 
 

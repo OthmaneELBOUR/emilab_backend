@@ -1,10 +1,10 @@
 package devjam.emilab.model;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,14 +19,14 @@ public class Session {
     private String title;
     private String description;
     private double price;
-    private LocalDate date;
+    private String date;
     private LocalTime time;
     private String topics;
     @ManyToOne
     private Therapist therapist;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Patient> members;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Review> reviews;
 
 
@@ -34,7 +34,7 @@ public class Session {
     }
 
 
-    public Session(String title, String description, double price, LocalDate date, LocalTime time, String topics,
+    public Session(String title, String description, double price, String date, LocalTime time, String topics,
             Therapist therapist) {
         this.title = title;
         this.description = description;
@@ -78,11 +78,11 @@ public class Session {
         this.price = price;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return this.date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -19,7 +19,6 @@ public class Person {
     protected String pictureURL;
     protected String lastname;
     protected String firstname;
-    @Column(unique = true)
     protected String phoneNumber;
     @Column(unique = true)
     protected String mail;

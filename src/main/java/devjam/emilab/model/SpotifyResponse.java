@@ -15,6 +15,7 @@ public class SpotifyResponse {
     private Long id;
     private String url;
     @Column(columnDefinition = "JSON")
+    // @Column(columnDefinition = "text")
     private String responseBody;
     private LocalDateTime timestamp;
 
