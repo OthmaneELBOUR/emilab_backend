@@ -11,14 +11,14 @@ import devjam.emilab.model.Person;
 import devjam.emilab.service.AuthService;
 
 @RestController
-@RequestMapping("/authenticate")
+@RequestMapping("/auth")
 @CrossOrigin(origins = "http://172.28.240.1:8080/")
 public class LoginController {
     @Autowired
     private AuthService authService;
 
     @PostMapping("")
-    public boolean authenticate(@RequestBody Person authObject) {
+    public Person authenticate(@RequestBody Person authObject) {
         return authService.login(authObject.getMail(), authObject.getPassword());
     }
 }
