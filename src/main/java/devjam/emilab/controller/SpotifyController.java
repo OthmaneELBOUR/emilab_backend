@@ -24,14 +24,4 @@ public class SpotifyController {
         }
     }
 
-    @GetMapping("/access")
-    public String getAccessToken() {
-        try {
-            System.out.println("Getting access token");
-            return spotifyService.getAccessToken();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error getting access token");
-        }
-    }
 }
