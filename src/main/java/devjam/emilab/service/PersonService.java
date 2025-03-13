@@ -95,10 +95,8 @@ public class PersonService {
         if(this.getPersonByEmail(null) != null) {
             throw new UserAlreadyExistsException("User with email " + patient.getMail() + " already exists");
         }
-        if(this.getPersonByPhoneNumber(null) != null) {
-            throw new UserAlreadyExistsException("User with phone number " + patient.getPhoneNumber() + " already exists");
-        }
         patient.setMail(patient.getLastname() + "." + patient.getFirstname() + "@emilab.com");
+        patient.setId(null);
         return patientRepo.save(patient);
     }
 
