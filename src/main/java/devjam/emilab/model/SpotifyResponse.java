@@ -14,7 +14,8 @@ public class SpotifyResponse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String url;
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "JSON")
+    // @Column(columnDefinition = "text")
     private String responseBody;
     private LocalDateTime timestamp;
 
