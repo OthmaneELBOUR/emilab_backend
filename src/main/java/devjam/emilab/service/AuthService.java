@@ -19,7 +19,6 @@ public class AuthService {
         }
         // return passwordEncoder.matches(password, person.getPassword());
         return password.equals(person.getPassword());
-
-        
     }
+    
 }

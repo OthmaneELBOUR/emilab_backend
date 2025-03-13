@@ -1,7 +1,5 @@
 package devjam.emilab.model;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +14,7 @@ public class Review {
     private String title;
     private String description;
     private int rating;
-    private LocalDate date;
+    private String date;
     @ManyToOne
     private Person author;
     @ManyToOne
@@ -27,7 +25,7 @@ public class Review {
     }
 
 
-    public Review(String title, String description, int rating, LocalDate date, Person author, Person target) {
+    public Review(String title, String description, int rating, String date, Person author, Person target) {
         this.title = title;
         this.description = description;
         this.rating = rating;
@@ -68,11 +66,11 @@ public class Review {
         this.rating = rating;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return this.date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

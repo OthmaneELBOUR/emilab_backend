@@ -6,4 +6,8 @@ import devjam.emilab.model.Therapist;
 
 public interface TherapistRepo extends JpaRepository<Therapist, Long> {
 
+    Therapist findByMail(String mail);
+
+    Therapist findByPhoneNumber(String phoneNumber);
+
 }

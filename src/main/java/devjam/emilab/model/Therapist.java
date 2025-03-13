@@ -1,39 +1,52 @@
 package devjam.emilab.model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Therapist extends Person{
-    private String specialities;
+    private String speciality;
     private double rating;
-    private LocalDate nextDateAvailiable;
-    @OneToMany
+    private String nextAvailiable;
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Session> sessions;
+    private int numberOfSessions;
 
 
     public Therapist() {
     }
 
 
-    public Therapist(String lastname, String firstname, String phoneNumber, String mail, String specialities,
-            double rating, LocalDate nextDateAvailiable, String password) {
+    public Therapist(String lastname, String firstname, String phoneNumber, String mail, String speciality,
+            double rating, String nextAvailiable, String password) {
         super(lastname, firstname, phoneNumber, mail, password);
-        this.specialities = specialities;
+        this.speciality = speciality;
         this.rating = rating;
-        this.nextDateAvailiable = nextDateAvailiable;
+        this.nextAvailiable = nextAvailiable;
+    }
+
+    
+
+
+    public Therapist(String lastname, String firstname, String phoneNumber, String mail, String password,
+            String speciality, double rating, String nextAvailiable, int numberOfSessions) {
+        super(lastname, firstname, phoneNumber, mail, password);
+        this.speciality = speciality;
+        this.rating = rating;
+        this.nextAvailiable = nextAvailiable;
+        this.numberOfSessions = numberOfSessions;
     }
 
 
-    public String getSpecialities() {
-        return this.specialities;
+    public String getSpeciality() {
+        return this.speciality;
     }
 
-    public void setSpecialities(String specialities) {
-        this.specialities = specialities;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public double getRating() {
@@ -44,12 +57,12 @@ public class Therapist extends Person{
         this.rating = rating;
     }
 
-    public LocalDate getNextDateAvailiable() {
-        return this.nextDateAvailiable;
+    public String getNextAvailiable() {
+        return this.nextAvailiable;
     }
 
-    public void setNextDateAvailiable(LocalDate nextDateAvailiable) {
-        this.nextDateAvailiable = nextDateAvailiable;
+    public void setNextAvailiable(String nextAvailiable) {
+        this.nextAvailiable = nextAvailiable;
     }
 
     public List<Session> getSessions() {
@@ -61,11 +74,24 @@ public class Therapist extends Person{
     }
 
 
+    public int getNumberOfSessions() {
+        return this.numberOfSessions;
+    }
+
+    public void setNumberOfSessions(int numberOfSessions) {
+        this.numberOfSessions = numberOfSessions;
+    }
+
+
     @Override
     public String toString() {
-        return "Therapist [specialities=" + specialities + ", rating=" + rating + ", nextDateAvailiable="
-                + nextDateAvailiable + ", toString()=" + super.toString() + "]";
+        return "Therapist [speciality=" + speciality + ", rating=" + rating + ", nextAvailiable=" + nextAvailiable
+                + ", numberOfSessions=" + numberOfSessions + ", toString()=" + super.toString() + "]";
     }
+
+
+
+
 
     
 
